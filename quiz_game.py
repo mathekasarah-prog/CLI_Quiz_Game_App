@@ -2,77 +2,69 @@ import random
 
 questions = [
     {
-        "question": "What is the capital city of Kenya?",
-        "choices": {
-            "A": "Mombasa",
-            "B": "Nairobi",
-            "C": "Kisumu",
-            "D": "Nakuru"
-        },
-        "answer": "B"
-    },
+        "question": "What is the capital of France?",
+        "options": {"A) Berlin",
+                    "B) Madrid",
+                    "C) Paris", 
+                    "D) Rome"},
+        "answer": "C) Paris"
+    
+},
     {
-        "question": "Which language is used for web development?",
-        "choices": {
-            "A": "Python",
-            "B": "Java",
-            "C": "JavaScript",
-            "D": "C++"
-        },
-        "answer": "C"
+        "question": "What is the largest planet in our solar system?",
+        "options": {"A) Earth",
+                    "B) Jupiter",
+                    "C) Saturn",
+                    "D) Mars"},
+        "answer": "B) Jupiter"
     },
+    
     {
-        "question": "What is 10 * 5?",
-        "choices": {
-            "A": "40",
-            "B": "45",
-            "C": "50",
-            "D": "60"
-        },
-        "answer": "C"
+            "question": "What is the chemical symbol for gold?",
+            "options": {"A) Au",
+                        "B) Ag",
+                        "C) Fe",
+                        "D) Hg"},
+        "answer": "A) Au"
+                        
+
     }
-]
+    
+    ]
 
-# Mix the questions
 random.shuffle(questions)
+print(questions)
 
-# Initialize score
+
 score = 0
 
-
-# Loop through questions
-for question in questions:
-
-    print("\n" + question["question"])
-
-    for letter, choice in question["choices"].items():
-        print(f"{letter}. {choice}")
-
-    user_answer = input("Enter your answer (A, B, C, D): ").upper()
-
-    if user_answer not in ["A", "B", "C", "D"]:
-        print("Invalid answer!")
-        continue
-
-    if user_answer == question["answer"]:
-        print("Correct! Well done.")
+for q in questions:
+    print(q["question"])
+    for option in q["options"]:
+        print(option)
+    answer = input("Enter your answer (A, B, C, or D): ")
+    if answer.upper() == q["answer"][0]:
+        print("Correct!")
         score += 1
     else:
-        print("Wrong answer!")
-        print(f"The correct answer is {question['answer']}")
+        print(f"Incorrect! The correct answer is {q['answer']}.")
+print(f"Your final score is {score}/{len(questions)}.")
 
-# Final results
+
+#final results
 print("\n================================")
 print("          QUIZ RESULTS")
 print("================================")
 
-print(f"Your score: {score}/{len(questions)}")
+print(f"Your Score: {score}/{len(questions)}")
 
 percentage = (score / len(questions)) * 100
 
 if percentage >= 80:
-    print("Excellent!")
+    print("Excellent! You passed the quiz.")
+    
 elif percentage >= 50:
-    print("Good job!")
+    print("Good job! You passed the quiz.")
+    
 else:
-    print("Try Again!")
+    print("You did not pass the quiz. Better luck next time!")
