@@ -58,5 +58,5 @@ Sarah Musenya
 
 ## License
 
-This project is open-source and available for learning purposes.
+This project licensed by MIT License.
 
